@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        body{
+        background-color:#ADD7F6;
+        background-image: url('./pexels-vojta-kovarik-388639-3243090.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+    }
+        
+    
+        .titlu{
+            display:flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-bottom: 40px;
+            background-color:#87BFFF;
+            padding: 15px;
+            font-family: fantasy;
+            font-size: 30px;
+            margin-top: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-size: 50px;
+            border-radius: 50px;
+            
+            
+            
+            
+    
+            
+    
+        }
+    
+        .container{
+            display:flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-left: 90px;
+            margin-right: 90px;
+            background-color:#7EBCE6;
+            padding: 25px;
+            font-family:'Times New Roman', Times, serif;
+            font-size: 30px;
+            border-radius: 50px;
+            
+    
+        }
+        
+        .contact-container {
+                max-width: 600px;
+                margin: auto;
+                background-color: #87BFFF;
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                margin-top: 50px;
+            }
+    
+            .contact-container h2 {
+                text-align: center;
+                margin-top: 50px;
+            }
+    
+            .contact-container input,
+            .contact-container textarea {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #317688;
+                border-radius: 5px;
+                margin-top: 50px;
+            }
+    
+            .contact-container button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-color: #333;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor:pointer;
+                margin-top: 50px;
+            }
+    
+            .contact-container button:hover {
+                background-color: #575757;
+                margin-top: 50px;
+            }
+    
+        
+    </style>
+</head>
+
+<body>
+    <div class="titlu">Agentia de turism "La Cojo"</div>
+    <div class="container">
+     
+ <li><a href="Acasa.html" style="text-decoration: none; color: black;">Acasa</a></li>
+ <li><a href="Servicii.html" style="text-decoration: none; color: black;">Servicii</a></li>
+ <li><a href="Despre noi.html" style="text-decoration:none black;">Despre noi</a></li>
+ <li><a href="Contacteaza ne.html" style="text-decoration: none; color: black;">Contact</a></li>
+ <li><a href="Harta.html" style="text-decoration: none; color: black;">Harta</a></li>
+    </div>
+    <section id="contact">
+        <div class="contact-container">
+            <h2>Contactează-ne</h2>
+            <form name="submit-to-google-sheet">
+                <label for="name">Nume:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mesaj:</label>
+                <textarea id="message" name="message" rows="3" required></textarea>
+
+                <button type="submit">Trimite</button>
+            </form>
+        </div>
+    </section>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzdyakCtzIzANxBDyD3cp5GxRBDECWi4RG31WccdTpHZwPV6RH9SB_UAD3CPNQxWoz1/execc'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>    
+
+</body>
+</html>
